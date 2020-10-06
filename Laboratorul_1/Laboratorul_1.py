@@ -119,14 +119,7 @@ def numpy_2():
     print("The cross product of 2 vectors = ", vector_prod)
     print("The scalar product of 2 vectors = ", scalar_prod)
     print("c)")
-    for element in v_1:
-        print("sqrt(" + str(element) + ") = ", math.sqrt(element))
-    else:
-        print("Done")
-    for element in vector_sum:
-        print("sqrt(" + str(element) + ") = ", math.sqrt(element))
-    else:
-        print("Done")
+    print(np.sqrt(v_1))
 
 
 def numpy_1():
