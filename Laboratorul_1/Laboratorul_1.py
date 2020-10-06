@@ -135,8 +135,8 @@ def numpy_1():
         a. Afisati doar ultimele 2 coloane din primele 2 randuri ale matricei
         b. Afisati ultimele 2 elemente din vector
     """
-    matrix_1 = np.array([[1, 2, 3, 4], [11, 12, 13, 14], [21, 22, 23, 24]], np.int32)
-    matrix_2 = np.array([[2], [-5], [7], [-10]], np.int32)
+    matrix_1 = np.array([[1, 2, 3, 4], [11, 12, 13, 14], [21, 22, 23, 24]])
+    matrix_2 = np.array([[2], [-5], [7], [-10]])
     print("a)\n", matrix_1[0:2, 0:2])
     print("b)\n", matrix_2[-2:])
     return matrix_1, matrix_2
