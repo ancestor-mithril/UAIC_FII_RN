@@ -22,12 +22,16 @@ def is_prime(x):
         return False
     if x == 1:
         return False
+    if x == 2:
+        return True
+    if x % 2 == 0:
+        return False
     max_divisor = int(math.sqrt(x))
-    divisor = 2
+    divisor = 3
     while divisor <= max_divisor:
         if x % divisor == 0:
             return False
-        divisor += 1
+        divisor += 2
     else:
         return True
 
@@ -112,11 +116,13 @@ def numpy_2():
     else:
         print("Vector are equal")
     vector_sum = np.add(v_1, v_2)
-    vector_prod = np.cross(v_1, v_2)
+    cross_prod = np.cross(v_1, v_2)
+    vector_prod = np.outer(v_1, v_2)
     scalar_prod = np.dot(v_1, v_2)
     print("b)")
     print("Vectors' sum = ", vector_sum)
-    print("The cross product of 2 vectors = ", vector_prod)
+    print("The cross product of 2 vectors = ", cross_prod)
+    print("The outer product of 2 vectors = ", vector_prod)
     print("The scalar product of 2 vectors = ", scalar_prod)
     print("c)")
     for element in v_1:
@@ -191,11 +197,11 @@ def exercise_1():
     print(number, ' is Prime = ', is_prime(number))
 
 
-exercise_1()
+# exercise_1()
 # exercise_2()
 # exercise_3()
 # numpy_1()
-# numpy_2()
+numpy_2()
 # numpy_3()
 # numpy_4()
 if __name__ == '__main__':
