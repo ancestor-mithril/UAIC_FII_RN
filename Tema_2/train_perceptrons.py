@@ -19,25 +19,22 @@ def train_perceptrons_together(perceptrons: List[Perceptron], training_set: Tupl
     :return: nothing
     """
     training_data = training_set[0]
-    training_labels = np.array([[1 if x == i else 0 for i in range(10)] for x in training_set[1]])
+    training_labels = np.array([[1 if x == i else -1 for i in range(10)] for x in training_set[1]])
     end_training = False
     perceptrons_wights = np.array([x.weights for x in perceptrons], dtype="float64")
     perceptron_biases = np.array([x.bias for x in perceptrons], dtype="float64")
     print(perceptrons_wights)
     while not end_training and iterations > 0:
-        errors = 0
         for i in range(training_data.shape[0]):
             x = np.array([training_data[i]])
-            z = np.add(np.dot(perceptrons_wights, x[0]), perceptron_biases)  # adeline activation
-            print(z)
+            z = np.where(np.add(np.dot(perceptrons_wights, x[0]), perceptron_biases) >= 0, 1, -1)  # adeline activation
+            # print(z)
             diff = np.array([training_labels[i] - z])
-            if diff[0, np.amax(training_labels[i])] != 0:
-                errors += 1
             a = (x * diff.transpose()) * niu
             perceptrons_wights += a
             perceptron_biases += diff[0] * niu
 
-        print(" Iteration: " + str(iterations) + " , errors: " + str(errors))
+        print(" Iteration: " + str(iterations))
         iterations -= 1
 
     for x in range(perceptrons_wights.shape[0]):

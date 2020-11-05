@@ -9,7 +9,7 @@ f.close()
 
 
 perceptrons = [Perceptron(value=i) for i in range(10)]
-tp.train_perceptrons_together(perceptrons, train_set, test_set, niu=0.001, iterations=30)
+tp.train_perceptrons_together(perceptrons, train_set, test_set, niu=0.001, iterations=10)
 
 
 # if __name__ == "__main__":
