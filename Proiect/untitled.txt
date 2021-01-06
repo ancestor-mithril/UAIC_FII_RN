@@ -1,0 +1,35 @@
+keras:
+1. predict pe s, 
+2. predict pe s',
+3. fit pe s cu true labels
+
+in buffer salvam (starea s, actiunea a, rewardul r, starea s'), continuam si jucam vreo 100 episoade.
+
+Dupa 100 de episoade, facem sample din multimea de tuple pentru a face backprop. - recalculam punctul 1(cu actiunea a), 2. (reaproximam) si facem 3.
+
+gamma mic la inceput, mare la tarziu. Learning rate mare la inceput, mai micut la final
+
+epsilon greedy exploration sa nu scada la 0
+
+de luat ultimele x frame-uri
+
+functia de reward e foarte importanta si contribuie destul de mult la antrenament
+
+de nu activat gresit stratul de output + de normalizat inputurile 
+
+o idee buna e ca sa nu avem functie de activare pe ultimul strat - "linear"
+
+MSE ar trebuii sa fie ok
+learning rate - sa scada
+gamma - sa creasca
+epsilon - sa scada
+la buffer - destul de marisor
+- cand se umple buffer-ul, fie scoatem instante vechi si adaugam instante noi
+- sau deep mind: sa scoatem din buffer sa scoatem tuplele care au produs cel mai mic loss
+
+- sa folosim 2 retele, cu o retea calculam s si alegem ce miscari jucam, pe ea o antrenam
+- pe a doua calculam s' si calculam true labels.
+- dupa cateva iteratii updatam reteaua 2
+- double q learning
+
+- ideile: de adaugat incremental
